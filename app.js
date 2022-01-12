@@ -59,6 +59,7 @@ app.use(express.json());
 app.use(
   cors()
 );
+app.options("*", cors()); // include before other routes
 
 app.use(morganMiddleware);
 app.use(require("./apis"));
