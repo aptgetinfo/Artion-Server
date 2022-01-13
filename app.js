@@ -56,12 +56,10 @@ require("./models/disabledExplorerCollection");
 
 app.use(bodyParser.json());
 app.use(express.json());
-const corsOpts = {
-  origin: "*",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
-};
-app.use(cors(corsOpts));
+app.use(
+  cors()
+);
+app.options("*", cors()); // include before other routes
 
 app.use(morganMiddleware);
 app.use(require("./apis"));
