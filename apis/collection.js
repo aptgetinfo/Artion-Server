@@ -41,6 +41,10 @@ const marketplaceSC = new ethers.Contract(
 );
 
 router.post('/collectiondetails', auth, async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true);
   let erc721Address = req.body.erc721Address;
   erc721Address = toLowerCase(erc721Address);
 
